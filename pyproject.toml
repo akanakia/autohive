@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "autohive"
+version = "0.1.0"
+description = "Implementing the board game Hive to use as an AI Sandbox"
+authors = ["Anshul Kanakia <anshul.p.kanakia@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.9"
+ipython = "^7.28.0"
+ipykernel = "^6.4.1"
+jupyter = "^1.0.0"
+notebook = "^6.4.4"
+numpy = "^1.21.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
