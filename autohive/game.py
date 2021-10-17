@@ -1,17 +1,21 @@
-from autohive import player
-
 from player import Player
 from board import Board
 
 class Game (object):
+    @staticmethod
+    def _show_game_rules():
+        print('Game Rules: ')
+        # TODO: Print game rules and how to move pieces
+
+
     def __init__(self, player1_name, player1_color, player2_name, player2_color):
         self._reset_game_state(player1_name, player1_color, player2_name, player2_color)
 
     def _reset_game_state (self, player1_name, player1_color, player2_name, player2_color):
         # Create players and game state
-        self._p1 = Player(player1_name, player1_color)
-        self._p2 = Player(player2_name, player2_color)
         self._b  = Board()
+        self._p1 = Player(player1_name, player1_color, self._b)
+        self._p2 = Player(player2_name, player2_color, self._b)
 
     def run_game_loop(self) -> bool:
         """

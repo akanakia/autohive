@@ -1,10 +1,13 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from enum import Enum
 import numpy as np
-import typing
 
-from board import Board
-from player import Player
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from board import Board
+    from player import Player
 
 class PieceState (Enum):
     OFF_BOARD = 0
@@ -16,16 +19,29 @@ class Piece (ABC):
     def __init__(self, owner: Player):
         self._x = np.NAN
         self._y = np.NAN
-        self._p = owner
+        self._owner = owner
         self._state = PieceState.OFF_BOARD
 
+    @property
+    def type(self):
+        return self.__class__.__name__
+
+    @property
+    def state(self):
+        return self.state
+
+    @property
+    def owner(self):
+        return self._owner
+
     @abstractmethod
-    def place(self, board: Board):
-        # Implemented baed on piece types
+    def place(self, board: Board, x: int, y: int):
+        # Placement logic implemented based on piece types
+        board.place(self, x, y)
         pass
 
     @abstractmethod
-    def move(self, board: Board):
+    def move(self, board: Board, x: int, y:int):
         # Implemented baed on piece types
         pass
 
@@ -33,52 +49,52 @@ class Piece (ABC):
 # ----------- BEE ---------------#
 # ============================== #
 class Bee (Piece):
-    def place(self, board):
-        return super().place(board)
+    def place(self, board, x: int, y:int):
+        return super().place(board, x, y)
 
-    def move(self, board):
-        return super().move(board)
+    def move(self, board, x: int, y:int):
+        return super().move(board, x, y)
 
 
 # ============================== #
 # ----------- ANT ---------------#
 # ============================== #
 class Ant (Piece):
-    def place(self, board):
-        return super().place(board)
+    def place(self, board, x: int, y:int):
+        return super().place(board, x, y)
 
-    def move(self, board):
-        return super().move(board)
+    def move(self, board, x: int, y:int):
+        return super().move(board, x, y)
 
 
 # ============================== #
 # -------- GRASSHOPPER --------- #
 # ============================== #
 class Grasshopper (Piece):
-    def place(self, board):
-        return super().place(board)
+    def place(self, board, x: int, y:int):
+        return super().place(board, x, y)
 
-    def move(self, board):
-        return super().move(board)
+    def move(self, board, x: int, y:int):
+        return super().move(board, x, y)
 
 
 # ============================== #
 # ---------- SPIDER -------------#
 # ============================== #
 class Spider (Piece):
-    def place(self, board):
-        return super().place(board)
+    def place(self, board, x: int, y:int):
+        return super().place(board, x, y)
 
-    def move(self, board):
-        return super().move(board)
+    def move(self, board, x: int, y:int):
+        return super().move(board, x, y)
 
 
 # ============================== #
 # ---------- BEETLE -------------#
 # ============================== #
 class Beetle (Piece):
-    def place(self, board):
-        return super().place(board)
+    def place(self, board, x: int, y:int):
+        return super().place(board, x, y)
 
-    def move(self, board):
-        return super().move(board)
+    def move(self, board, x: int, y:int):
+        return super().move(board, x, y)
