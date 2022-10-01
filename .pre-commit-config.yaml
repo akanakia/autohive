@@ -1,0 +1,36 @@
+# To install run: pre-commit install
+# To update run: pre-commit install-hooks
+# files: '[A-Za-z0-9\_]*.py'
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.3.0
+  hooks:
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+
+- repo: https://github.com/jorisroovers/gitlint
+  rev: v0.17.0
+  hooks:
+  - id: gitlint
+    name: gitlint
+    language: python
+    entry: gitlint
+    args: [--staged, --msg-filename]
+    stages: [commit-msg]
+
+- repo: https://github.com/pycqa/isort
+  rev: 5.10.1
+  hooks:
+  - id: isort
+
+- repo: https://github.com/psf/black
+  rev: 22.8.0
+  hooks:
+  - id: black
+    language_version: python3.9
+
+- repo: https://github.com/pycqa/flake8
+  rev: 5.0.4
+  hooks:
+  - id: flake8
