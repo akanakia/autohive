@@ -1,16 +1,20 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    from player import Player
-    from pieces import Piece
 
-class Board (object):
+if TYPE_CHECKING:
+    from hivegame.pieces import Piece
+    from hivegame.player import Player
+
+
+class Board(object):
     def __init__(self):
         # TODO: Implement game grid
         self._grid = []
 
-    def place(self, piece: Piece, x: int, y:int):
+    def place(self, piece: Piece, x: int, y: int):
         # TODO: Implement board placement and movement
         self._grid.append(piece)
 
